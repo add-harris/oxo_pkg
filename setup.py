@@ -4,8 +4,8 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="oxo",
-    version="2.0.0",
+    name="oxo_pkg",
+    version="2.0.1",
     author="Adam Harrison",
     author_email="author@example.com",
     description="naughts and crosses game",

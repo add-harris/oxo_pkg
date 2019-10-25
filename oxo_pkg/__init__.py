@@ -1,5 +1,5 @@
 
-name = "oxo"
+name = "oxo_pkg"
 
 from .models import models
 from .resources import data
