@@ -26,14 +26,14 @@ def run():
                     # print "grid updated"
 
                     if check_for_win_wrapper(game, "congratulations! %s's win") == True:
-                        main()
+                        run()
 
                     cpu_move_key = computer_move(game)
                     setattr(game, cpu_move_key, Move( cpu_move_key, "O"))
                     print("computer makes a move: " + cpu_move_key)
 
                     if check_for_win_wrapper(game, "you lose! %s's win") == True:
-                        main()
+                        run()
 
                     turn()
                 else:

@@ -1,6 +1,6 @@
 # OXO
 
-A naughts & crosses game
+A naughts & crosses game.
 
 # Install
 
@@ -8,7 +8,7 @@ Currently this is installable as a python package to be ran in the Python3 repl.
 
 To install run command:
 
-`python3 -m pip install --user --upgrade oxo_pkg`
+`python3 -m pip install --user --upgrade oxo_pkg` (not yet available, use TestPyPi)
 
 if installing from [TestPyPi](https://test.pypi.org/project/oxo-pkg/) run:
 
@@ -25,12 +25,6 @@ import and run the package:-
 \>`import oxo_pkg`
 
 \>`oxo_pkg.run()`
-
-
-This is a simple example package. You can use
-[Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
-to write your content.
-
 
 # Build
 

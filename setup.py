@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="oxo_pkg",
-    version="2.0.1",
+    version="2.0.2",
     author="Adam Harrison",
     author_email="author@example.com",
     description="naughts and crosses game",
