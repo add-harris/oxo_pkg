@@ -4,6 +4,6 @@ bin/
 dist/
 lib/
 include/
-oxo.egg-info/
+oxo_pkg.egg-info/
 venv/
 .Python
