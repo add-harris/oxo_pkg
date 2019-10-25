@@ -1,0 +1,9 @@
+.idea/
+build/
+bin/
+dist/
+lib/
+include/
+oxo.egg-info/
+venv/
+.Python
