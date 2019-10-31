@@ -68,7 +68,7 @@ def play_again():
     else:
         print ("not a valid input")
         print ("enter no or press Ctrl + C to exit")
-        play_again()
+        return play_again()
 
 
 

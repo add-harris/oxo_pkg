@@ -4,8 +4,6 @@ A naughts & crosses game.
 
 # Install
 
-Currently this is installable as a python package to be ran in the Python3 repl.
-
 To install run command:
 
 `python3 -m pip install --user --upgrade oxo_pkg` (not yet available, use TestPyPi)
@@ -16,15 +14,31 @@ if installing from [TestPyPi](https://test.pypi.org/project/oxo-pkg/) run:
 
 # Run
 
-Open the python3 repl:-
+Oxo can either by ran as a commandline script or as a python package ran in the Python3 REPL.
+
+#### run in python REPL :
+
+Open the python3 REPL
 
 `python3`
 
-import and run the package:-
+import and run the package
 
 \>`import oxo_pkg`
 
 \>`oxo_pkg.run()`
+
+#### run in commandline :
+
+run `oxo` in a commandline terminal.
+
+#### troubleshooting
+
+try `which oxo`
+
+This should print something like `/Users/your.username/Library/Python/3.7/bin/oxo`
+
+If not find the equivalent location in your filesystem (where pip installs applications to), check that `oxo` binary file is present, & add the location to your PATH.
 
 # Build
 
