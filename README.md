@@ -40,6 +40,12 @@ This should print something like `/Users/your.username/Library/Python/3.7/bin/ox
 
 If not find the equivalent location in your filesystem (where pip installs applications to), check that `oxo` binary file is present, & add the location to your PATH.
 
+# Tests
+
+from project home directory run
+
+`python3 -m unittest test.test_methods.TestMethods`
+
 # Build
 
 `python3 -m pip install --user --upgrade setuptools wheel` (install / update wheel & setuptools)

@@ -7,3 +7,5 @@ include/
 oxo_pkg.egg-info/
 venv/
 .Python
+*/__pycache__/
+*.pyc
