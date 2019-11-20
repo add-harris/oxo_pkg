@@ -32,6 +32,10 @@ import and run the package
 
 run `oxo` in a commandline terminal.
 
+### run locally :
+
+run `python3 ./oxo` from project home directory.
+
 #### troubleshooting
 
 try `which oxo`
