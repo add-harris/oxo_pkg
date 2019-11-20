@@ -3,7 +3,9 @@
 
 all_move_keys = ["topLeft", "topMid", "topRight", "midLeft", "midMid", "midRight", "bottomLeft", "bottomMid", "bottomRight"]
 
-possible_input = ["tl", "tm", "tr", "ml", "mm", "mr", "bl", "bm", "br", "xx"]
+corner_moves = ["topLeft", "topRight", "bottomLeft", "bottomRight"]
+
+possible_input = ["tl", "tm", "tr", "ml", "mm", "mr", "bl", "bm", "br", "zz"]
 
 # dictionary - key value pairs
 moves_map = {
@@ -16,7 +18,7 @@ moves_map = {
     "bl": "bottomLeft",
     "bm": "bottomMid",
     "br": "bottomRight",
-    "xx": "bottomRight",
+    "zz": "bottomRight",
 }
 
 possible_wins = [
