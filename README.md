@@ -2,6 +2,8 @@
 
 A naughts & crosses game.
 
+*note: requires python version >= 3.6*
+
 # Install
 
 To install run command:
@@ -62,7 +64,9 @@ Produces a .whl built distribution & a tar file of the source code in `dist/` di
 
 Increment release number in `setup.py` file.
 
-Build a new release with steps above.
+Make sure the latest version is built with above build step.
+
+Upload the build with [twine](https://pypi.org/project/twine/): 
 
 `python3 -m pip install --user --upgrade twine` (install / update twine)
 

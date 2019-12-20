@@ -5,13 +5,13 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="oxo_pkg",
-    version="2.0.3",
+    version="2.0.4",
     author="Adam Harrison",
     author_email="author@example.com",
     description="naughts and crosses game",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/tbd",
+    url="https://github.com/add-harris/oxo_pkg",
     scripts=["oxo"],
     packages=setuptools.find_packages(),
     classifiers=[
