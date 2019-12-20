@@ -71,8 +71,19 @@ def play_again():
         return play_again()
 
 def computer_move_hard(game):
-    watch_for_win(game)
+
+    winning_move = watch_for_win(game)
+    if winning_move != None:
+        print("computer: I win!!")
+        return winning_move
+
+    blocking_move = watch_for_win(game, "X")
+    if blocking_move != None:
+        print("computer: Not so fast!!")
+        return blocking_move
+
     all_available_move_keys = get_available_move_keys(game)
+
     corner_move = play_the_corners(game, all_available_move_keys)
     if corner_move != None:
         return corner_move
@@ -81,21 +92,18 @@ def computer_move_hard(game):
 
 def play_the_corners(game, move_list):
     available_conrers = list(filter(lambda move: move in move_list, corner_moves))
-    print(available_conrers)
     if len(available_conrers) > 0:
         return available_conrers[0]
     else:
         return None
 
-def watch_for_win(game):
+def watch_for_win(game, player = "O"):
     for win_set in possible_wins:
-        values = list(map(lambda position: getattr(game, position), win_set))
-        print(values)
-        if values.count("O") == 2 and values.count("-") == 1:
-            print("possible win!!!")
-            # create list(Moves(position, value)) from win_set
-            moves = list(map(lambda position: Move(position, getattr(game, position)), win_set))
-            print(moves)
+        moves = list(map(lambda position: getattr(game, position), win_set))
+        values = list(map(lambda move: move.value, moves))
+        if values.count(player) == 2 and values.count("-") == 1:
+            winning_move = list(filter(lambda move: move.value == "-", moves)).pop().position
+            return winning_move
     return None
 
 

@@ -8,11 +8,21 @@ from .models.models import *
 def run():
 
     hard_mode = False
+    s_rank = False
+    args_list = []
 
     for eachArg in sys.argv[1:]:
-        if eachArg == "--hard":
-            print("* HARD MODE ACTIVATED *")
-            hard_mode = True
+        if eachArg == "--hard" or eachArg == "--s-hard":
+            args_list.append(eachArg)
+
+    if args_list.__contains__("--s-hard"):
+        hard_mode = True
+        s_rank = True
+        print("*** SUPER-HARD-MODE ACTIVATE ***")
+    elif args_list.__contains__("--hard"):
+        hard_mode = True
+        print("** HARD-MODE ACTIVATE **")
+
 
     game = Grid()
 
@@ -33,7 +43,6 @@ def run():
                         run()
 
                     if hard_mode:
-                        print("hard move")
                         cpu_move_key = computer_move_hard(game)
                     else:
                         cpu_move_key = computer_move(game)
@@ -55,6 +64,11 @@ def run():
             print(" - program exited")
             print("bye bye!")
             sys.exit()
+
+    if s_rank == True:
+        print("computer makes first move ...")
+        cpu_move_key = computer_move_hard(game)
+        setattr(game, cpu_move_key, Move(cpu_move_key, "O"))
 
     turn()
 
