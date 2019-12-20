@@ -4,6 +4,8 @@ import random
 from ..models.models import *
 from ..resources.data import *
 
+from ..text import text
+
 
 # Methods
 
@@ -106,5 +108,20 @@ def watch_for_win(game, player = "O"):
             return winning_move
     return None
 
+# Non Functional Methods
 
+def print_functions(args):
+    if args.__contains__("--help"):
+        print("showing help options")
+        print_help()
 
+    if args.__contains__("--version"):
+        print_version()
+
+def print_help():
+    print(text.help_text)
+    sys.exit()
+
+def print_version():
+    print(text.version_text)
+    sys.exit()

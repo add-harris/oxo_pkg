@@ -7,13 +7,21 @@ from .models.models import *
 
 def run():
 
+    # Argument Handling
+
     hard_mode = False
     s_rank = False
     args_list = []
+    accepted_arguments = ["--hard", "--s-hard", "--help", "--version"]
 
     for eachArg in sys.argv[1:]:
-        if eachArg == "--hard" or eachArg == "--s-hard":
+        if eachArg in accepted_arguments:
             args_list.append(eachArg)
+        else:
+            print (eachArg + " is not an accepted argument")
+            print_help()
+
+    print_functions(args_list)
 
     if args_list.__contains__("--s-hard"):
         hard_mode = True
