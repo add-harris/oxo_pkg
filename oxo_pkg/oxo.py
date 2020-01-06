@@ -12,7 +12,7 @@ def run():
     hard_mode = False
     s_rank = False
     args_list = []
-    accepted_arguments = ["--hard", "--s-hard", "--help", "--version"]
+    accepted_arguments = ["--hard", "--s-hard", "--help", "--version", "--license", "--readme"]
 
     for eachArg in sys.argv[1:]:
         if eachArg in accepted_arguments:

@@ -118,10 +118,24 @@ def print_functions(args):
     if args.__contains__("--version"):
         print_version()
 
+    if args.__contains__("--license"):
+        print_license()
+
+    if args.__contains__("--readme"):
+        print_readme()
+
 def print_help():
     print(text.help_text)
     sys.exit()
 
 def print_version():
     print(text.version_text)
+    sys.exit()
+
+def print_license():
+    print(text.license_txt)
+    sys.exit()
+
+def print_readme():
+    print(text.readme)
     sys.exit()

@@ -2,7 +2,7 @@
 
 A naughts & crosses game.
 
-*note: requires python version >= 3.6*
+##### *note: requires python version >= 3.6*
 
 # Install
 
@@ -38,6 +38,22 @@ run `oxo` in a commandline terminal.
 
 run `python3 ./oxo` from project home directory.
 
+### options
+
+See below text:
+
+```text
+here is a list of accepted arguments: 
+    --hard     :  activates hard-mode
+    --s-hard   :  activates super-hard-mode
+    --version  :  show current version number
+    --help     :  show help options
+    --license  :  show license
+    --readme   :  show readme
+```
+
+To see these at any point run `oxo --help`
+
 #### troubleshooting
 
 try `which oxo`
@@ -59,6 +75,8 @@ from project home directory run
 `python3 setup.py sdist bdist_wheel`
 
 Produces a .whl built distribution & a tar file of the source code in `dist/` directory.
+
+To install the locally built version run `python3 -m pip install --user --upgrade dist/*`
 
 # Release
 
