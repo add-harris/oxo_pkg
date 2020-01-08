@@ -1,11 +1,14 @@
 import setuptools
 
-with open("README.md", "r") as fh:
+with open("README.md") as fh:
     long_description = fh.read()
+
+with open("oxo_pkg/resources/version.md") as fh:
+    version = fh.read()
 
 setuptools.setup(
     name="oxo_pkg",
-    version="2.0.11",
+    version=version,
     author="Adam Harrison",
     author_email="author@example.com",
     description="naughts and crosses game",
@@ -13,13 +16,8 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/add-harris/oxo_pkg",
     scripts=["oxo"],
-    packages=setuptools.find_packages(),
-    # non of these are currently working - need to include these files in distributed app
-    data_files=[("", ['README.md', 'LICENSE'])],
-    # if True should include files specified in MANIFEST.in
+    packages=setuptools.find_packages(exclude=["test"]),
     include_package_data=True,
-    package_data={
-        '': ['README.md', 'LICENSE']},
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

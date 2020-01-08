@@ -1,22 +1,24 @@
 import sys
 import random
+import os
 
 from ..models.models import *
 from ..resources.data import *
-
 from ..text import text
 
 
 # Methods
 
-def is_input_valid(input):
-    if input in possible_input:
+def is_input_valid(user_input):
+    if user_input in possible_input:
         return True
     else:
         return False
 
-def input_to_move_key(input):
-    return moves_map.get(input)
+
+def input_to_move_key(user_input):
+    return moves_map.get(user_input)
+
 
 def get_available_move_keys(game):
     return_list = []
@@ -26,6 +28,7 @@ def get_available_move_keys(game):
             return_list.append(key)
     return return_list
 
+
 def is_move_valid(game, move_key):
     all_available_move_keys = get_available_move_keys(game)
     if move_key in all_available_move_keys:
@@ -33,11 +36,13 @@ def is_move_valid(game, move_key):
     else:
         return False
 
+
 def computer_move(game):
     all_available_move_keys = get_available_move_keys(game)
     random_index = random.randint(0, len(all_available_move_keys)-1)
     cpu_move_key = all_available_move_keys[random_index]
     return cpu_move_key
+
 
 def check_for_win(game):
     for win_set in possible_wins:
@@ -46,21 +51,23 @@ def check_for_win(game):
             return Win( True, values[0])
     return Win( False, "-")
 
+
 def check_for_win_wrapper(game, string):
     win = check_for_win(game)
-    if win.win == True:
-        print (game)
-        print (string %(win.value))
+    if win.win:
+        print(game)
+        print(string % win.value)
         return play_again()
     elif len(get_available_move_keys(game)) == 0:
-        print (game)
-        print ("oh ho, its a draw")
+        print(game)
+        print("oh ho, its a draw")
         return play_again()
     else:
         return False
 
+
 def play_again():
-    print ("would you like to play again?")
+    print("would you like to play again?")
     replay = input(": ").lower()
     if replay in no_answers:
         print("bye bye!")
@@ -68,9 +75,10 @@ def play_again():
     elif replay in yes_answers:
         return True
     else:
-        print ("not a valid input")
-        print ("enter no or press Ctrl + C to exit")
+        print("not a valid input")
+        print("enter no or press Ctrl + C to exit")
         return play_again()
+
 
 def computer_move_hard(game):
 
@@ -92,12 +100,14 @@ def computer_move_hard(game):
     else:
         return all_available_move_keys[0]
 
+
 def play_the_corners(game, move_list):
     available_conrers = list(filter(lambda move: move in move_list, corner_moves))
     if len(available_conrers) > 0:
         return available_conrers[0]
     else:
         return None
+
 
 def watch_for_win(game, player = "O"):
     for win_set in possible_wins:
@@ -107,6 +117,7 @@ def watch_for_win(game, player = "O"):
             winning_move = list(filter(lambda move: move.value == "-", moves)).pop().position
             return winning_move
     return None
+
 
 # Non Functional Methods
 
@@ -118,24 +129,25 @@ def print_functions(args):
     if args.__contains__("--version"):
         print_version()
 
-    if args.__contains__("--license"):
-        print_license()
-
-    if args.__contains__("--readme"):
-        print_readme()
 
 def print_help():
     print(text.help_text)
     sys.exit()
 
+
 def print_version():
-    print(text.version_text)
+    # get directory of current script (i.e. python/site-packages/oxo_pkg/methods)
+    text_dir = os.path.dirname(__file__)
+    # add route to sibling folder
+    joined_path = os.path.join(text_dir, '../resources/version.md')
+    # resolve to real path - removes '..'
+    file_path = os.path.realpath(joined_path)
+    try:
+        with open(file_path) as fh:
+            version_number = fh.read()
+    except:
+        version_number = "NOT AVAILABLE"
+
+    print(text.get_version_text(version_number))
     sys.exit()
 
-def print_license():
-    print(text.license_txt)
-    sys.exit()
-
-def print_readme():
-    print(text.readme)
-    sys.exit()

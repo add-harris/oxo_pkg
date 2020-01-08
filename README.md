@@ -48,8 +48,6 @@ here is a list of accepted arguments:
     --s-hard   :  activates super-hard-mode
     --version  :  show current version number
     --help     :  show help options
-    --license  :  show license
-    --readme   :  show readme
 ```
 
 To see these at any point run `oxo --help`
@@ -80,7 +78,7 @@ To install the locally built version run `python3 -m pip install --user --upgrad
 
 # Release
 
-Increment release number in `setup.py` file.
+Increment release number in `oxo_pkg/resources/version.md` file.
 
 Make sure the latest version is built with above build step.
 

@@ -1,9 +1,8 @@
 #!/usr/bin/python
 
-import sys, getopt
-
 from .utils.methods import *
 from .models.models import *
+
 
 def run():
 
@@ -12,7 +11,7 @@ def run():
     hard_mode = False
     s_rank = False
     args_list = []
-    accepted_arguments = ["--hard", "--s-hard", "--help", "--version", "--license", "--readme"]
+    accepted_arguments = ["--hard", "--s-hard", "--help", "--version"]
 
     for eachArg in sys.argv[1:]:
         if eachArg in accepted_arguments:
@@ -30,7 +29,6 @@ def run():
     elif args_list.__contains__("--hard"):
         hard_mode = True
         print("** HARD-MODE ACTIVATE **")
-
 
     game = Grid()
 
@@ -73,12 +71,13 @@ def run():
             print("bye bye!")
             sys.exit()
 
-    if s_rank == True:
+    if s_rank:
         print("computer makes first move ...")
         cpu_move_key = computer_move_hard(game)
         setattr(game, cpu_move_key, Move(cpu_move_key, "O"))
 
     turn()
+
 
 if __name__ == "__main__":
     run()
