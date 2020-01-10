@@ -12,6 +12,7 @@ def fill_grid(grid, move_keys, value):
     for key in move_keys:
         setattr(grid, key, Move( key, value))
 
+
 def remove_move_keys(move_keys):
     some_move_keys = all_move_keys.copy()
     for key in move_keys:
@@ -171,45 +172,46 @@ class TestMethods(unittest.TestCase):
         with redirect_stdout(redirected_output):
             check_for_win_wrapper(game, "any string %s")
 
-        self.assertEquals("", redirected_output.getvalue())
+        self.assertEqual("", redirected_output.getvalue())
 
     def test_computer_move_hard_goes_for_corners_1(self):
         game = Grid()
         response = computer_move_hard(game)
-        self.assertEquals("topLeft", response)
+        self.assertEqual("topLeft", response)
 
     def test_computer_move_hard_goes_for_corners_2(self):
         game = Grid()
         setattr(game, "topLeft", Move( "topLeft", "X"))
         response = computer_move_hard(game)
-        self.assertEquals("topRight", response)
+        self.assertEqual("topRight", response)
 
     def test_computer_move_hard_goes_for_corners_3(self):
         game = Grid()
         fill_grid(game, ["topLeft", "topRight"], "X")
         setattr(game, "topMid", Move( "topMid", "O"))
         response = computer_move_hard(game)
-        self.assertEquals("bottomLeft", response)
+        self.assertEqual("bottomLeft", response)
 
     def test_computer_move_hard_goes_for_corners_4(self):
         game = Grid()
         fill_grid(game, ["topLeft", "topRight"], "O")
         fill_grid(game, ["topMid", "bottomLeft"], "X")
         response = computer_move_hard(game)
-        self.assertEquals("bottomRight", response)
+        self.assertEqual("bottomRight", response)
 
     def test_computer_move_hard_blocks_win_1(self):
         game = Grid()
         fill_grid(game, ["topLeft", "topRight"], "X")
         response = computer_move_hard(game)
-        self.assertEquals("topMid", response)
+        self.assertEqual("topMid", response)
 
     def test_computer_move_hard_blocks_win_2(self):
         game = Grid()
         fill_grid(game, ["bottomLeft", "topRight"], "X")
         fill_grid(game, ["topLeft"], "O")
         response = computer_move_hard(game)
-        self.assertEquals("midMid", response)
+        self.assertEqual("midMid", response)
+
 
 if __name__ == '__main__':
     unittest.main()

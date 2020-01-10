@@ -25,14 +25,27 @@ def run():
     if args_list.__contains__("--s-hard"):
         hard_mode = True
         s_rank = True
-        print("*** SUPER-HARD-MODE ACTIVATE ***")
+        print("*** SUPER-HARD-MODE ACTIVE ***")
     elif args_list.__contains__("--hard"):
         hard_mode = True
-        print("** HARD-MODE ACTIVATE **")
+        print("** HARD-MODE ACTIVE **")
+
+    # help trackers
+
+    input_helper = False
+    move_helper = False
+
+    # initialize game
 
     game = Grid()
 
+    # game logic
+
     def turn():
+
+        nonlocal input_helper
+        nonlocal move_helper
+
         try:
             print(game)
             your_move = input("your move: ").lower()
@@ -45,7 +58,7 @@ def run():
 
                     setattr(game, move_key, Move( move_key, "X"))
 
-                    if check_for_win_wrapper(game, "congratulations! %s's win") == True:
+                    if check_for_win_wrapper(game, "congratulations! %s's win"):
                         run()
 
                     if hard_mode:
@@ -56,20 +69,34 @@ def run():
                     setattr(game, cpu_move_key, Move(cpu_move_key, "O"))
                     print("computer makes a move: " + cpu_move_key)
 
-                    if check_for_win_wrapper(game, "you lose! %s's win") == True:
+                    if check_for_win_wrapper(game, "you lose! %s's win"):
                         run()
 
                     turn()
                 else:
-                    print("move is NOT valid - move %s is already taken" %(your_move))
+                    print("move is NOT valid - move %s is already taken" % your_move)
+
+                    if move_helper:
+                        print("show available moves!!")
+                    else:
+                        move_helper = True
+
                     turn()
             else:
                 print("invalid input")
+
+                if input_helper:
+                    print("show available inputs!!")
+                else:
+                    input_helper = True
+
                 turn()
         except KeyboardInterrupt:
             print(" - program exited")
             print("bye bye!")
             sys.exit()
+
+    # first move by cpu on super-hard-mode
 
     if s_rank:
         print("computer makes first move ...")
