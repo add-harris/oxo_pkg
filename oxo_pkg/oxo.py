@@ -11,7 +11,7 @@ def run():
     hard_mode = False
     s_rank = False
     args_list = []
-    accepted_arguments = ["--hard", "--s-hard", "--help", "--version"]
+    accepted_arguments = ["--hard", "--s-hard", "--show-inputs", "--help", "--version"]
 
     for eachArg in sys.argv[1:]:
         if eachArg in accepted_arguments:
@@ -77,7 +77,7 @@ def run():
                     print("move is NOT valid - move %s is already taken" % your_move)
 
                     if move_helper:
-                        print("show available moves!!")
+                        show_available_moves(game)
                     else:
                         move_helper = True
 
@@ -86,7 +86,7 @@ def run():
                 print("invalid input")
 
                 if input_helper:
-                    print("show available inputs!!")
+                    show_available_inputs()
                 else:
                     input_helper = True
 

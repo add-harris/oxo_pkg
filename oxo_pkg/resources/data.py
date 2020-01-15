@@ -5,20 +5,31 @@ all_move_keys = ["topLeft", "topMid", "topRight", "midLeft", "midMid", "midRight
 
 corner_moves = ["topLeft", "topRight", "bottomLeft", "bottomRight"]
 
-possible_input = ["tl", "tm", "tr", "ml", "mm", "mr", "bl", "bm", "br", "zz"]
+# possible_input = ["tl", "tm", "tr", "ml", "mm", "mr", "bl", "bm", "br", "zz"]
 
 # dictionary - key value pairs
+# moves_map = {
+#     "tl": "topLeft",
+#     "tm": "topMid",
+#     "tr": "topRight",
+#     "ml": "midLeft",
+#     "mm": "midMid",
+#     "mr": "midRight",
+#     "bl": "bottomLeft",
+#     "bm": "bottomMid",
+#     "br": "bottomRight",
+# }
+
 moves_map = {
-    "tl": "topLeft",
-    "tm": "topMid",
-    "tr": "topRight",
-    "ml": "midLeft",
-    "mm": "midMid",
-    "mr": "midRight",
-    "bl": "bottomLeft",
-    "bm": "bottomMid",
-    "br": "bottomRight",
-    "zz": "bottomRight",
+    "topLeft": ["top left", "topleft", "tl"],
+    "topMid": ["top mid", "topmid", "tm"],
+    "topRight": ["top right", "topright", "tr"],
+    "midLeft": ["mid left", "midleft", "ml"],
+    "midMid": ["mid mid", "midmid", "mm"],
+    "midRight": ["mid right", "midright", "mr"],
+    "bottomLeft": ["bottom left", "bottomleft", "bl"],
+    "bottomMid": ["bottom mid", "bottommid", "bm"],
+    "bottomRight": ["bottom right", "bottomright", "br"],
 }
 
 possible_wins = [

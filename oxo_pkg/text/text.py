@@ -4,10 +4,11 @@
 
 help_text = """
 here is a list of accepted arguments: 
-    --hard     :  activates hard-mode
-    --s-hard   :  activates super-hard-mode
-    --version  :  show current version number
-    --help     :  show help options
+    --hard         :  activates hard-mode
+    --s-hard       :  activates super-hard-mode
+    --show-inputs  :  show all accepted move formats
+    --version      :  show current version number
+    --help         :  show help options
 """
 
 

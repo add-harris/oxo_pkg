@@ -29,13 +29,20 @@ class TestMethods(unittest.TestCase):
         self.assertEqual(is_input_valid("x"), False)
 
     def test_is_input_valid_true(self):
-        for input in possible_input:
-            self.assertEqual(is_input_valid(input), True)
+        for values in moves_map.values():
+            for input in values:
+                self.assertEqual(is_input_valid(input), True)
 
     def test_input_to_move_key(self):
         self.assertEqual(input_to_move_key("tl"), "topLeft")
         self.assertEqual(input_to_move_key("mm"), "midMid")
         self.assertEqual(input_to_move_key("br"), "bottomRight")
+
+    def test_input_to_move_key_all(self):
+        for key, values in moves_map.items():
+            for value in values:
+                self.assertEqual(input_to_move_key(value), key)
+
 
     def test_get_available_move_keys_all(self):
         game = Grid()

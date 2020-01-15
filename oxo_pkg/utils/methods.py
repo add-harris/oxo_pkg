@@ -10,14 +10,17 @@ from ..text import text
 # Methods
 
 def is_input_valid(user_input):
-    if user_input in possible_input:
-        return True
-    else:
-        return False
+    input_correct = False
+    for values in moves_map.values():
+        if user_input in values:
+            input_correct = True
+    return input_correct
 
 
 def input_to_move_key(user_input):
-    return moves_map.get(user_input)
+    for key, value in moves_map.items():
+        if user_input in value:
+            return key
 
 
 def get_available_move_keys(game):
@@ -129,6 +132,9 @@ def print_functions(args):
     if args.__contains__("--version"):
         print_version()
 
+    if args.__contains__("--show-inputs"):
+        show_all_accepted_inputs()
+
 
 def print_help():
     print(text.help_text)
@@ -149,5 +155,26 @@ def print_version():
         version_number = "NOT AVAILABLE"
 
     print(text.get_version_text(version_number))
+    sys.exit()
+
+
+def show_available_moves(game):
+    available_moves_keys = get_available_move_keys(game)
+    pretty_available_moves = list(map(lambda key: moves_map.get(key)[0], available_moves_keys))
+    print("availbe moves are :", pretty_available_moves)
+
+
+def show_available_inputs():
+    print("input accepted in the format : 'top left', 'topleft' or 'tl'")
+
+
+def show_all_accepted_inputs():
+    #  move this to text file
+    print()
+    print("here is a list of all possible inputs, & the formats they are accepted in :")
+    print()
+    for values in moves_map.values():
+        print(values)
+    print()
     sys.exit()
 
