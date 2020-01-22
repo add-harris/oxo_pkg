@@ -17,7 +17,7 @@ def run():
         if eachArg in accepted_arguments:
             args_list.append(eachArg)
         else:
-            print (eachArg + " is not an accepted argument")
+            print(eachArg + " is not an accepted argument")
             print_help()
 
     print_functions(args_list)
@@ -25,10 +25,10 @@ def run():
     if args_list.__contains__("--s-hard"):
         hard_mode = True
         s_rank = True
-        print("*** SUPER-HARD-MODE ACTIVE ***")
+        print("\n*** SUPER-HARD-MODE ACTIVE ***")
     elif args_list.__contains__("--hard"):
         hard_mode = True
-        print("** HARD-MODE ACTIVE **")
+        print("\n** HARD-MODE ACTIVE **")
 
     # help trackers
 
@@ -67,14 +67,14 @@ def run():
                         cpu_move_key = computer_move(game)
 
                     setattr(game, cpu_move_key, Move(cpu_move_key, "O"))
-                    print("computer makes a move: " + cpu_move_key)
+                    print("computer makes a move: " + moves_map.get(cpu_move_key)[0])
 
                     if check_for_win_wrapper(game, "you lose! %s's win"):
                         run()
 
                     turn()
                 else:
-                    print("move is NOT valid - move %s is already taken" % your_move)
+                    print("\nmove is NOT valid - move %s is already taken" % your_move)
 
                     if move_helper:
                         show_available_moves(game)

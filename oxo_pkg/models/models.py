@@ -23,7 +23,7 @@ class Grid:
     bottomMid = Move( "bottomMid", "-")
     bottomLeft = Move( "bottomLeft", "-")
     def __str__(self):
-        return "%s|%s|%s|%s|\n%s|%s|%s|%s|\n%s|%s|%s|%s|\n%s" %(line,
+        return "\n%s|%s|%s|%s|\n%s|%s|%s|%s|\n%s|%s|%s|%s|\n%s" %(line,
                                                                 self.topLeft, self.topMid, self.topRight, line,
                                                                 self.midLeft, self.midMid, self.midRight, line,
                                                                 self.bottomLeft, self.bottomMid, self.bottomRight, line)

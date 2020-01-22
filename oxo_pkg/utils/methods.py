@@ -69,8 +69,14 @@ def check_for_win_wrapper(game, string):
         return False
 
 
+play_again_helper = False
+
+
 def play_again():
-    print("would you like to play again?")
+
+    global play_again_helper
+
+    print("\nwould you like to play again?")
     replay = input(": ").lower()
     if replay in no_answers:
         print("bye bye!")
@@ -78,8 +84,12 @@ def play_again():
     elif replay in yes_answers:
         return True
     else:
-        print("not a valid input")
-        print("enter no or press Ctrl + C to exit")
+        if play_again_helper:
+            show_available_yes_nos()
+        else:
+            print("\ntry again...")
+            play_again_helper = True
+        print("or press Ctrl + C to exit")
         return play_again()
 
 
@@ -165,16 +175,22 @@ def show_available_moves(game):
 
 
 def show_available_inputs():
-    print("input accepted in the format : 'top left', 'topleft' or 'tl'")
+    print("input accepted in the format : 'top left', 'topleft' or 'tl' (input is not case sensitive)")
 
 
 def show_all_accepted_inputs():
     #  move this to text file
     print()
-    print("here is a list of all possible inputs, & the formats they are accepted in :")
+    print("here is a list of all possible inputs & their accepted formats :")
     print()
     for values in moves_map.values():
         print(values)
     print()
     sys.exit()
+
+
+def show_available_yes_nos():
+    print("\nanswer not recognised. accepted answers are :")
+    print("yes -", yes_answers)
+    print("no -", no_answers)
 
