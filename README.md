@@ -8,7 +8,7 @@ A naughts & crosses game.
 
 To install run command:
 
-`python3 -m pip install --user --upgrade oxo_pkg` (not yet available, use TestPyPi)
+`python3 -m pip install --user --upgrade oxo_pkg`
 
 if installing from [TestPyPi](https://test.pypi.org/project/oxo-pkg/) run:
 
@@ -16,7 +16,7 @@ if installing from [TestPyPi](https://test.pypi.org/project/oxo-pkg/) run:
 
 # Run
 
-Oxo can either by ran as a commandline script or as a python package ran in the Python3 REPL.
+oxo can either by ran as a commandline script or as a python package ran in the Python3 REPL.
 
 #### run in python REPL :
 
