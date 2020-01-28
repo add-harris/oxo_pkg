@@ -18,7 +18,7 @@ if installing from [TestPyPi](https://test.pypi.org/project/oxo-pkg/) run:
 
 oxo can either by ran as a commandline script or as a python package ran in the Python3 REPL.
 
-#### run in python REPL :
+#### - Run in python REPL :
 
 Open the python3 REPL
 
@@ -30,11 +30,11 @@ import and run the package
 
 \>`oxo_pkg.run()`
 
-#### run in commandline :
+#### - Run in commandline :
 
 run `oxo` in a commandline terminal.
 
-### run locally :
+#### run locally :
 
 run `python3 ./oxo` from project home directory.
 
